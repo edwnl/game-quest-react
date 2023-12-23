@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client.ts";
-import { Cancel, CanceledError } from "axios";
+import { CanceledError } from "axios";
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
 }
 
 interface FetchGamesResponse {
