@@ -1,10 +1,12 @@
 import useGenres from "../hooks/useGenres.ts";
-import {HStack, Image, List, ListItem, Text} from "@chakra-ui/react";
+import {HStack, Image, List, ListItem, Spinner, Text} from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 
 const GenreList = () => {
-    const {data} = useGenres();
+    const {data, isLoading, error} = useGenres();
 
+    if (error) return <Text>Error!</Text>;
+    if (isLoading) return <Spinner/>;
     // List element allows rendering a list without a bullet
     // point like <li>
     return (
