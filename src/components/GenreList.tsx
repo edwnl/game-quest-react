@@ -1,4 +1,3 @@
-import useGenres, { Genre } from "../hooks/useGenres.ts";
 import {
   Button,
   HStack,
@@ -8,23 +7,25 @@ import {
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import getCroppedImageUrl from "../services/image-url.ts";
+import useGenres, { Genre } from "../hooks/useGenres";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
-  if (error) return <Text>Error!</Text>;
+  if (error) return null;
+
   if (isLoading) return <Spinner />;
-  // List element allows rendering a list without a bullet
-  // point like <li>
+
   return (
     <List>
       {data.map((genre) => (
-        <ListItem paddingY="5px" key={genre.id}>
+        <ListItem key={genre.id} paddingY="5px">
           <HStack>
             <Image
               boxSize="32px"
@@ -32,9 +33,11 @@ const GenreList = ({ onSelectGenre }: Props) => {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <Button
-              variant="link"
-              fontSize="lg"
+              fontSize={"lg"}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
+              fontSize="lg"
+              variant="link"
             >
               {genre.name}
             </Button>
