@@ -2,11 +2,11 @@
   "name": "game-quest-react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://edwnl.github.io/game-quest-react",
+  "homepage": "https://edwnl.github.io/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint game-quest-react --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
