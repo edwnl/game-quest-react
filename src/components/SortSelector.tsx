@@ -21,7 +21,11 @@ const SortSelector = ({ onSelectSortOrder, gameQuery }: Props) => {
   );
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton
+        whiteSpace={"nowrap"}
+        as={Button}
+        rightIcon={<BsChevronDown />}
+      >
         Order by: {currentSortOrder?.label || "Relevance"}
       </MenuButton>
       <MenuList>
