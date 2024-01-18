@@ -2,7 +2,7 @@
   "name": "game-quest-react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://edwnl.github.io/",
+  "homepage": "https://edwnl.github.io/game-quest-react",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
