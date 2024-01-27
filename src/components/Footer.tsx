@@ -6,7 +6,7 @@ const Footer = () => {
       <Flex justify="space-between" align="center">
         <Text>Made with ❤️ by Edwin</Text>
         <Flex>
-          <Link mx={2} href="/about">
+          <Link mx={2} target="_blank" href="https://github.com/edwnl/game-quest-react">
             Source Code
           </Link>
         </Flex>
